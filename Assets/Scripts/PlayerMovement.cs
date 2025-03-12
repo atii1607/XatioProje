@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float rollSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(20f, 20f);
+    [SerializeField] AudioClip deathSound;
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -103,6 +104,13 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
 
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position);
         }
     }
 
