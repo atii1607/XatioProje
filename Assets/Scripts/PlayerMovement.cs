@@ -103,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.velocity = deathKick;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
         }
     }
