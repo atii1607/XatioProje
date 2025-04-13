@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
@@ -35,6 +35,14 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite();
         Die();
+    }
+    public void LoadData(GameData gameData)
+    {
+        this.transform.position = gameData.playerPosition;
+    }
+    public void SaveData (ref GameData gameData)
+    {
+        gameData.playerPosition = this.transform.position;
     }
 
     void OnMove(InputValue value)
@@ -80,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         float originalYVelocity = myRigidbody.velocity.y;
         myRigidbody.velocity = new Vector2(transform.localScale.x * rollSpeed, originalYVelocity);
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         myRigidbody.velocity = new Vector2(transform.localScale.x * runSpeed, myRigidbody.velocity.y);
         myAnimator.SetBool("isRolling", false);
     }
@@ -103,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.velocity = deathKick;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            //FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
         }
     }
