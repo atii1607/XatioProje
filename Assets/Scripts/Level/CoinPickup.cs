@@ -14,8 +14,10 @@ public class CoinPickup : MonoBehaviour, IDataPersistence
         {
             FindObjectOfType<LevelCountText>().CollectCoin();
             AudioSource.PlayClipAtPoint(coinPickupSound, Camera.main.transform.position);
-            Destroy(gameObject);
-            collected = true;
+            if (!collected)
+            {
+                CollectCoin();
+            }
         }
     }
     [ContextMenu("Generate guid for id")]
@@ -32,12 +34,18 @@ public class CoinPickup : MonoBehaviour, IDataPersistence
             Destroy(gameObject);
         }
     }
-    public void SaveData(ref GameData gameData)
+    public void SaveData(GameData gameData)
     {
         if (gameData.coinsCollected.ContainsKey(id))
         {
             gameData.coinsCollected.Remove(id);
         }
         gameData.coinsCollected.Add(id, collected);
+    }
+
+    public void CollectCoin()
+    {
+        collected = true;
+        Destroy(gameObject);
     }
 }

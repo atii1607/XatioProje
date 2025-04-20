@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     [SerializeField] float rollSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(20f, 20f);
     [SerializeField] AudioClip deathSound;
+    private Coroutine speedBoostCoroutine;
+    private Coroutine JumpBoostCoroutine;
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -40,7 +42,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     {
         this.transform.position = gameData.playerPosition;
     }
-    public void SaveData (ref GameData gameData)
+    public void SaveData (GameData gameData)
     {
         gameData.playerPosition = this.transform.position;
     }
@@ -113,6 +115,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
             //FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
+
         }
     }
 
@@ -121,6 +124,47 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         if (collision.tag == "Enemy")
         {
             AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position);
+        }
+    }
+
+    public void ActivateSpeedBoost(float boostedSpeed, float duration)
+    {
+        if (speedBoostCoroutine != null)
+        {
+            StopCoroutine(speedBoostCoroutine);
+        }
+        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(boostedSpeed, duration));
+    }
+    public void ActivateJumpBoost(float jumpBoosted, float duration)
+    {
+        if (JumpBoostCoroutine != null)
+        {
+            StopCoroutine(JumpBoostCoroutine);
+        }
+        JumpBoostCoroutine = StartCoroutine(JumpBoostRoutine(jumpBoosted, duration));
+    }
+
+    private IEnumerator SpeedBoostRoutine(float boostedSpeed, float duration)
+    {
+        runSpeed = boostedSpeed;
+        yield return new WaitForSeconds(duration);
+        runSpeed = 5f;
+        speedBoostCoroutine = null;
+    }
+    private IEnumerator JumpBoostRoutine(float jumpBoosted, float duration)
+    {
+        jumpSpeed = jumpBoosted;
+        yield return new WaitForSeconds(duration);
+        jumpSpeed = 5f;
+        JumpBoostCoroutine = null;
+    }
+
+    public void RespawnPlayer(GameData gameData)
+    {
+        if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        {
+            gameData.playerPosition = this.transform.position;
+            this.transform.position = gameData.respawnPosition; //TODO - Respawn position not working properly.
         }
     }
 

@@ -10,9 +10,10 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
     private TextMeshProUGUI coinsCountText;
 
     [SerializeField] int playerLives = 3;
+    [SerializeField] int playerBerry = 0;
     [SerializeField] int playerCoins = 0;
 
-    public void SaveData(ref GameData gameData)
+    public void SaveData(GameData gameData)
     {
         gameData.playerLives = this.playerLives;
         gameData.playerCoins = this.playerCoins;
@@ -20,28 +21,27 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData gameData)
     {
-        this.playerLives = gameData.playerLives;
-        this.playerCoins = gameData.playerCoins;
-        foreach(KeyValuePair<string, bool> pair in gameData.coinsCollected)
+        foreach (KeyValuePair<string, bool> pair in gameData.coinsCollected)
         {
             if (pair.Value)
             {
-                
+                playerCoins++;
+            }
+        }
+
+        foreach(KeyValuePair<string, bool> pair in gameData.berryCollected)
+        {
+            if (pair.Value)
+            {
+                playerBerry++;
             }
         }
     }
 
     void Awake()
     {
-        int numGameSessions = FindObjectsOfType<LevelCountText>().Length;
-        if (numGameSessions > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        livesCountText = this.GetComponent<TextMeshProUGUI>();
+        coinsCountText = this.GetComponent<TextMeshProUGUI>();
     }
 
     void Start()
@@ -62,19 +62,19 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
         UpdateCoinsDisplay();
     }
 
-    public void ProcessPlayerDeath(GameObject player)
-    {
-        if (playerLives > 1)
-        {
-            TakeLife();
-            //RespawnPlayer(player);
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            playerLives = 3;
-        }
-    }
+    //public void ProcessPlayerDeath(GameObject player)
+    //{
+    //    if (playerLives > 1)
+    //    {
+    //        TakeLife();
+    //        //RespawnPlayer(player);
+    //    }
+    //    else
+    //    {
+    //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //        playerLives = 3;
+    //    }
+    //}
 
     public void CollectCoin()
     {
@@ -103,9 +103,4 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
             coinsCountText.text = "Coins: " + playerCoins;
         }
     }
-
-    //void RespawnPlayer(GameObject player)
-    //{
-    //    player.transform.position = respawnPosition;
-    //}
 }

@@ -15,9 +15,14 @@ public class FileDataHandler
         this.dataFileName = dataFileName;
     }
 
-    public GameData Load()
+    public GameData Load(string profileId)
     {
-        string fullPath = Path.Combine(dataDirectoryPath, dataFileName);
+        if(profileId == null)
+        {
+            return null;
+        }
+
+        string fullPath = Path.Combine(dataDirectoryPath, profileId, dataFileName);
         GameData loadedData = null;
 
         if (File.Exists(fullPath))
@@ -27,7 +32,7 @@ public class FileDataHandler
                 string dataToLoad = "";
                 using (FileStream stream = new FileStream(fullPath, FileMode.Open))
                 {
-                    using(StreamReader reader = new StreamReader(stream))
+                    using (StreamReader reader = new StreamReader(stream))
                     {
                         dataToLoad = reader.ReadToEnd();
                     }
@@ -43,9 +48,14 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData gameData)
+    public void Save(GameData gameData, string profileId)
     {
-        string fullPath = Path.Combine(dataDirectoryPath, dataFileName);
+        if(profileId == null)
+        {
+            return;
+        }
+
+        string fullPath = Path.Combine(dataDirectoryPath, profileId, dataFileName);
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -53,7 +63,7 @@ public class FileDataHandler
 
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
-                using(StreamWriter writer = new StreamWriter(stream))
+                using (StreamWriter writer = new StreamWriter(stream))
                 {
                     writer.Write(dataToStore);
                 }
@@ -61,7 +71,59 @@ public class FileDataHandler
         }
         catch (Exception ex)
         {
-            Debug.LogError("Error occured when trying to save data" + fullPath +"\n" + ex);
+            Debug.LogError("Error occured when trying to save data" + fullPath + "\n" + ex);
         }
+    }
+
+    public Dictionary<string, GameData> LoadAllProfiles()
+    {
+        Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
+
+        IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirectoryPath).EnumerateDirectories();
+        foreach (DirectoryInfo dirInfo in dirInfos)
+        {
+            string profileId = dirInfo.Name;
+            string fullPath = Path.Combine(dataDirectoryPath, profileId, dataFileName);
+            if (!File.Exists(fullPath))
+            {
+                Debug.Log("Skipping directory when loading all profiles because it does not contain data: " + profileId);
+                continue;
+            }
+            GameData profileData = Load(profileId);
+            if(profileData != null)
+            {
+                profileDictionary.Add(profileId, profileData);
+            }
+            else
+            {
+                Debug.LogError("Something went horribly wrong in profile: " + profileId);
+            }
+        }
+
+        return profileDictionary;
+    }
+
+    public string GetProfileId()
+    {
+        string newProfileId = null;
+        Dictionary<string, GameData> profileGameData = LoadAllProfiles();
+        foreach(KeyValuePair<string, GameData> pair in profileGameData)
+        {
+            string profileId =pair.Key;
+            GameData gameData = pair.Value;
+
+            if(gameData == null)
+            {
+                continue;
+            }
+
+            if(newProfileId == null)
+            {
+                newProfileId = profileId;
+            }
+
+
+        }
+        return newProfileId;
     }
 }

@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class LoadGameMenu : MonoBehaviour
+{
+    private FileSlot[] fileSlots;
+    private bool isLoadingGame = false;
+    private PlayMenu playMenu;
+
+    private void Awake()
+    {
+        fileSlots = this.GetComponentsInChildren<FileSlot>();
+    }
+
+    public void OnFileSlotsClicked(FileSlot fileSlot)
+    {
+        DisableMenuButtons();
+        DataPersistenceManager.instance.ChangeSelectedProfileId(fileSlot.GetProfilesId());
+        if (!isLoadingGame)
+        {
+            DataPersistenceManager.instance.NewGame();
+        }
+        SceneManager.LoadSceneAsync("Level 1");
+
+    }
+
+    public void ActivateMenu(bool isLoadingGame)
+    {
+        this.gameObject.SetActive(true);
+        this.isLoadingGame = isLoadingGame;
+        Dictionary<string, GameData> profilesGameData = DataPersistenceManager.instance.GetAllProfilesGameData();
+        foreach (FileSlot fileSlot in fileSlots)
+        {
+            GameData profileData = null;
+            profilesGameData.TryGetValue(fileSlot.GetProfilesId(), out profileData);
+            fileSlot.SetData(profileData);
+            if(profileData == null && isLoadingGame)
+            {
+                fileSlot.SetInteractable(false);
+            }
+            else
+            {
+                fileSlot.SetInteractable(true);
+            }
+        }
+
+    }
+    public void DeactivateMenu()
+    {
+        this.gameObject.SetActive(false);
+    }
+
+    public void DisableMenuButtons()
+    {
+        foreach(FileSlot fileSlot in fileSlots)
+        {
+            fileSlot.SetInteractable(false);
+        }
+    }
+}
