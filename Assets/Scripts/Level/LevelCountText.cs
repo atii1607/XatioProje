@@ -12,6 +12,9 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
     [SerializeField] int playerLives = 3;
     [SerializeField] int playerBerry = 0;
     [SerializeField] int playerCoins = 0;
+    [SerializeField] PlayerMovement playerMovement;
+
+    private Vector3 respawnPosition;
 
     public void SaveData(GameData gameData)
     {
@@ -36,6 +39,8 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
                 playerBerry++;
             }
         }
+
+        this.playerLives = gameData.playerLives;
     }
 
     void Awake()
@@ -62,19 +67,32 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
         UpdateCoinsDisplay();
     }
 
-    //public void ProcessPlayerDeath(GameObject player)
-    //{
-    //    if (playerLives > 1)
-    //    {
-    //        TakeLife();
-    //        //RespawnPlayer(player);
-    //    }
-    //    else
-    //    {
-    //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //        playerLives = 3;
-    //    }
-    //}
+    public void ProcessPlayerDeath()
+    {
+        if (playerLives > 0)
+        {
+            StartCoroutine(RespawnPlayerAfterDelay(3f));
+            if(playerLives <= 0)
+            {
+                StartCoroutine(RespawnAfterGameReset(3f));
+            }
+        }
+    }
+
+    public IEnumerator RespawnPlayerAfterDelay(float delay)
+    {
+        TakeLife();
+        yield return new WaitForSeconds(delay);
+        respawnPosition = new Vector3(-10.49f, -5.09f, 0f);
+        playerMovement.ResetPlayer(respawnPosition);
+    }
+    public IEnumerator RespawnAfterGameReset(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        RespawnLife();
+        GameData gameData = new GameData();
+        playerMovement.ResetPlayer(gameData.playerPosition);
+    }
 
     public void CollectCoin()
     {
@@ -82,10 +100,17 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
         UpdateCoinsDisplay();
     }
 
-    void TakeLife()
+    public void TakeLife()
     {
         playerLives--;
         UpdateLivesDisplay();
+    }
+
+    public void RespawnLife()
+    {
+        playerLives = 3;
+        UpdateLivesDisplay();
+        DataPersistenceManager.instance.SaveGame();
     }
 
     void UpdateLivesDisplay()

@@ -5,8 +5,8 @@ using UnityEngine;
 public class BerryPickup : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private string id;
-    public float boostSpeed = 7.5f;
-    public float jumpBoost = 7.5f;
+    public float boostSpeed = 10f;
+    public float jumpBoost = 10f;
     public float duration = 5f;
     private bool collected = false;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,6 +44,7 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
     {
         if (player != null)
         {
+            jumpBoost = 5f;
             collected = true;
             player.ActivateSpeedBoost(boostSpeed, duration);
             Destroy(gameObject);
@@ -53,6 +54,7 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
     {
         if (player != null)
         {
+            boostSpeed = 5f;
             collected = true;
             player.ActivateJumpBoost(jumpBoost, duration);
             Destroy(gameObject);

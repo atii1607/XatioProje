@@ -23,14 +23,18 @@ public class EnemyMovement : MonoBehaviour
     {
         myRigidBody2D.velocity = new Vector2(moveSpeed, 0f);
         FlipEnemyFacing();
-        Die();
         
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         moveSpeed = -moveSpeed;
+        Die(collision);
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Die(collision.collider);
     }
 
     void FlipEnemyFacing()
@@ -40,15 +44,28 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    void Die()
+    public void Die(Collider2D collision)
     {
-        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player")))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isAlive = false;
-            myAnimator.SetTrigger("Die");
-            myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
-            Destroy(gameObject, myAnimator.GetCurrentAnimatorStateInfo(0).length);
+            float playerBottom = collision.bounds.min.y;
+            float enemyTop = GetComponent<Collider2D>().bounds.max.y;
 
+            if (playerBottom > enemyTop - 0.1f)
+            {
+                isAlive = false;
+                myAnimator.SetTrigger("Die");
+                myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+                Destroy(gameObject, myAnimator.GetCurrentAnimatorStateInfo(0).length);
+            }
+            else
+            {
+                PlayerMovement player = collision.GetComponent<PlayerMovement>(); // Or whatever script your player uses
+                if (player != null)
+                {
+                    player.Die(GetComponent<Collider2D>()); // Pass enemy collider as per your method
+                }
+            }
         }
     }
 

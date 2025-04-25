@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
+    [SerializeField] LevelCountText levelCountText;
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float rollSpeed = 5f;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     CapsuleCollider2D myBodyCollider;
 
     bool isAlive = true;
+    bool isDying = false;
 
     void Start()
     {
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     {
         Run();
         FlipSprite();
-        Die();
+        //Die();
     }
     public void LoadData(GameData gameData)
     {
@@ -104,26 +106,38 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         }
     }
 
-    void Die()
+    public void Die(Collider2D collision)
     {
-        if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies"))) 
+        if (isDying || !isAlive) return;
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             isAlive = false;
             myAnimator.SetTrigger("Die");
             myRigidbody.velocity = deathKick;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
-            //FindObjectOfType<GameSession>().ProcessPlayerDeath();
-
-
+            levelCountText.ProcessPlayerDeath();
         }
     }
+
+    public void ResetPlayer(Vector3 newPosition)
+    {
+        transform.position = newPosition;
+        isAlive = true;
+        isDying = false;
+        myAnimator.SetBool("isIdle", true);
+        myRigidbody.velocity = Vector2.zero;
+        myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
+    }
+
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
             AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position);
+            Die(collision);
         }
     }
 
@@ -159,13 +173,12 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         JumpBoostCoroutine = null;
     }
 
-    public void RespawnPlayer(GameData gameData)
-    {
-        if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
-        {
-            gameData.playerPosition = this.transform.position;
-            this.transform.position = gameData.respawnPosition; //TODO - Respawn position not working properly.
-        }
-    }
+    //public void RespawnPlayer(GameData gameData)
+    //{
+    //    if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+    //    {
+    //        respawnPosition = new Vector3(-10.49f, -5.09f, 0f);
+    //    }
+    //}
 
 }
