@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     public void Die(Collider2D collision)
     {
         if (isDying || !isAlive) return;
-        if (collision.gameObject.CompareTag("Enemy") && isInvincible) //TODO: isInvincible should not kill the player
+        if (collision.gameObject.CompareTag("Enemy") && !isInvincible) //TODO: isInvincible should not kill the player
         {
             isAlive = false;
             myAnimator.SetTrigger("Die");
@@ -119,12 +119,6 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
             levelCountText.ProcessPlayerDeath();
-        }
-        else
-        {
-            isAlive = true;
-            isDying = false;
-            return;
         }
     }
 
@@ -187,7 +181,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     private IEnumerator JumpBoostRoutine(float boostMultiplier, float duration)
     {
         float originalJump = jumpSpeed;
-        jumpSpeed *= boostMultiplier; // <<< multiply instead of replacing!
+        jumpSpeed *= boostMultiplier;
 
         yield return new WaitForSeconds(duration);
 
@@ -197,6 +191,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     private IEnumerator InvincibilityRoutine(float duration) //TODO: isInvincible should not kill the player
     {
         isInvincible = true;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
         float lowAlpha = 0.5f; 
@@ -213,6 +208,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         }
 
         isInvincible = false;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
         invincibilityCoroutine = null;
     }
 
