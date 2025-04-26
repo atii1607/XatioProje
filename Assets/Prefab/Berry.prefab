@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5541181300407280645}
   - component: {fileID: 5762609394763686617}
-  - component: {fileID: 708135855483459751}
   - component: {fileID: 8445684947987542473}
   - component: {fileID: 8041702615098924064}
   m_Layer: 11
@@ -70,22 +69,6 @@ CircleCollider2D:
   m_Offset: {x: 0.0055320263, y: -0.049788088}
   serializedVersion: 2
   m_Radius: 0.31744504
---- !u!114 &708135855483459751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2948997714028805604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405171de8b116b149bdb32ca1dcf6c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 63e0bf5c-7c8f-45c1-aa04-64b8da6452f2
-  boostSpeed: 0
-  jumpBoost: 15
-  duration: 5
 --- !u!212 &8445684947987542473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 1012230101
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -313415581, guid: a0a64dea428f9314ea748052e09cb588, type: 3}
+  m_Sprite: {fileID: 539908341, guid: a0a64dea428f9314ea748052e09cb588, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

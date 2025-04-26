@@ -9,13 +9,14 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
     [SerializeField] LevelCountText levelCountText;
-    [SerializeField] float runSpeed = 5f;
+    public float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float rollSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(20f, 20f);
     [SerializeField] AudioClip deathSound;
     private Coroutine speedBoostCoroutine;
-    private Coroutine JumpBoostCoroutine;
+    private Coroutine jumpBoostCoroutine;
+    private Coroutine invincibilityCoroutine;
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
 
     bool isAlive = true;
     bool isDying = false;
+    public bool isInvincible = false;
 
     void Start()
     {
@@ -66,7 +68,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         }
     }
 
-    void Run()
+    public void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, myRigidbody.velocity.y);
         myRigidbody.velocity = playerVelocity;
@@ -109,7 +111,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     public void Die(Collider2D collision)
     {
         if (isDying || !isAlive) return;
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && isInvincible) //TODO: isInvincible should not kill the player
         {
             isAlive = false;
             myAnimator.SetTrigger("Die");
@@ -117,6 +119,12 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
             levelCountText.ProcessPlayerDeath();
+        }
+        else
+        {
+            isAlive = true;
+            isDying = false;
+            return;
         }
     }
 
@@ -141,37 +149,74 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         }
     }
 
-    public void ActivateSpeedBoost(float boostedSpeed, float duration)
+    public void ActivateSpeedBoost(float boostSpeed, float duration)
     {
         if (speedBoostCoroutine != null)
         {
             StopCoroutine(speedBoostCoroutine);
         }
-        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(boostedSpeed, duration));
-    }
-    public void ActivateJumpBoost(float jumpBoosted, float duration)
-    {
-        if (JumpBoostCoroutine != null)
-        {
-            StopCoroutine(JumpBoostCoroutine);
-        }
-        JumpBoostCoroutine = StartCoroutine(JumpBoostRoutine(jumpBoosted, duration));
+        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(boostSpeed, duration));
     }
 
-    private IEnumerator SpeedBoostRoutine(float boostedSpeed, float duration)
+    public void ActivateJumpBoost(float boostJump, float duration)
     {
-        runSpeed = boostedSpeed;
+        if (jumpBoostCoroutine != null)
+        {
+            StopCoroutine(jumpBoostCoroutine);
+        }
+        jumpBoostCoroutine = StartCoroutine(JumpBoostRoutine(boostJump, duration));
+    }
+    public void ActivateInvincibility(float duration)
+    {
+        if (invincibilityCoroutine != null)
+        {
+            StopCoroutine(invincibilityCoroutine);
+        }
+        invincibilityCoroutine = StartCoroutine(InvincibilityRoutine(duration));
+    }
+
+    private IEnumerator SpeedBoostRoutine(float boostSpeed, float duration)
+    {
+        float originalSpeed = runSpeed;
+        runSpeed = boostSpeed;
         yield return new WaitForSeconds(duration);
-        runSpeed = 5f;
+        runSpeed = originalSpeed;
         speedBoostCoroutine = null;
     }
-    private IEnumerator JumpBoostRoutine(float jumpBoosted, float duration)
+
+    private IEnumerator JumpBoostRoutine(float boostMultiplier, float duration)
     {
-        jumpSpeed = jumpBoosted;
+        float originalJump = jumpSpeed;
+        jumpSpeed *= boostMultiplier; // <<< multiply instead of replacing!
+
         yield return new WaitForSeconds(duration);
-        jumpSpeed = 5f;
-        JumpBoostCoroutine = null;
+
+        jumpSpeed = originalJump;
+        jumpBoostCoroutine = null;
     }
+    private IEnumerator InvincibilityRoutine(float duration) //TODO: isInvincible should not kill the player
+    {
+        isInvincible = true;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        float lowAlpha = 0.5f; 
+
+        Color c = spriteRenderer.color;
+        c.a = lowAlpha;
+        spriteRenderer.color = c;
+        yield return new WaitForSeconds(5f);
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = true;
+            c.a = 1f;
+            spriteRenderer.color = c;
+        }
+
+        isInvincible = false;
+        invincibilityCoroutine = null;
+    }
+
+
 
     //public void RespawnPlayer(GameData gameData)
     //{

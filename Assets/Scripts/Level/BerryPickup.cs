@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static BerryPickup;
 
 public class BerryPickup : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private string id;
-    public float boostSpeed = 10f;
-    public float jumpBoost = 10f;
-    public float duration = 5f;
+    private float boostSpeed = 8f;
+    private float jumpBoost = 1.3f;
+    private float duration = 5f;
     private bool collected = false;
+    public enum BerryType
+    {
+        RedBerry,
+        YellowBerry,
+        GreenBerry,
+    }
+    public BerryType berryType;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player") && !collected)
         {
-            CollectRedBerry(collision.GetComponent<PlayerMovement>());
-            CollectYellowBerry(collision.GetComponent<PlayerMovement>());
+            PlayerMovement player = collision.GetComponent<PlayerMovement>();
+            CollectBerry(player);
         }
     }
+
     [ContextMenu("Generate guid for id")]
     private void GenerateGuid()
     {
@@ -40,25 +50,56 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
         gameData.berryCollected.Add(id, collected);
     }
 
-    private void CollectRedBerry(PlayerMovement player)
+    private void CollectBerry(PlayerMovement player)
     {
         if (player != null)
         {
-            jumpBoost = 5f;
             collected = true;
-            player.ActivateSpeedBoost(boostSpeed, duration);
+            ApplyBerryEffect(player);
             Destroy(gameObject);
         }
     }
-    private void CollectYellowBerry(PlayerMovement player)
+
+    private void ApplyBerryEffect(PlayerMovement player)
     {
-        if (player != null)
+        switch (berryType)
         {
-            boostSpeed = 5f;
-            collected = true;
-            player.ActivateJumpBoost(jumpBoost, duration);
-            Destroy(gameObject);
+            case BerryType.RedBerry:
+                player.ActivateSpeedBoost(boostSpeed, duration);
+                break;
+
+            case BerryType.YellowBerry:
+                player.ActivateJumpBoost(jumpBoost, duration);
+                break;
+
+            case BerryType.GreenBerry:
+                player.ActivateInvincibility(duration);
+                break;
+
+            default:
+                Debug.LogWarning("Berry type not handled!");
+                break;
         }
     }
+
+    //private void CollectRedBerry(PlayerMovement player)
+    //{
+    //    if (player != null)
+    //    {
+    //        collected = true;
+    //        player.ActivateSpeedBoost(boostSpeed, duration);
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    //private void CollectYellowBerry(PlayerMovement player)
+    //{
+    //    if (player != null)
+    //    {
+    //        collected = true;
+    //        player.ActivateJumpBoost(jumpBoost, duration);
+    //        Destroy(gameObject);
+    //    }
+    //}
 
 }
