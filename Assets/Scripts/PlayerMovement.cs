@@ -17,22 +17,22 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     private Coroutine speedBoostCoroutine;
     private Coroutine jumpBoostCoroutine;
     private Coroutine invincibilityCoroutine;
+    public static PlayerMovement instance { get; private set; }
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
-    CapsuleCollider2D myBodyCollider;
+    BoxCollider2D myBodyCollider;
 
     bool isAlive = true;
     bool isDying = false;
     public bool isInvincible = false;
-
     void Start()
     {
         if(!isAlive) { return; }
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        myBodyCollider = GetComponent<CapsuleCollider2D>();
+        myBodyCollider = GetComponent<BoxCollider2D>();
 
     }
 
@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     {
         Run();
         FlipSprite();
-        //Die();
     }
     public void LoadData(GameData gameData)
     {
@@ -48,7 +47,9 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     }
     public void SaveData (GameData gameData)
     {
-        gameData.playerPosition = this.transform.position;
+        if (this == null) return;
+        gameData.playerPosition = transform.position;
+
     }
 
     void OnMove(InputValue value)
@@ -111,10 +112,10 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     public void Die(Collider2D collision)
     {
         if (isDying || !isAlive) return;
-        if (collision.gameObject.CompareTag("Enemy") && !isInvincible) //TODO: isInvincible should not kill the player
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             isAlive = false;
-            myAnimator.SetTrigger("Die");
+            myAnimator.SetBool("isDead", true);
             myRigidbody.velocity = deathKick;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
@@ -124,12 +125,13 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
 
     public void ResetPlayer(Vector3 newPosition)
     {
+        myRigidbody.velocity = Vector2.zero;
+        myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        myAnimator.SetBool("isDead", false);
+        myAnimator.SetBool("isIdle", true);
         transform.position = newPosition;
         isAlive = true;
         isDying = false;
-        myAnimator.SetBool("isIdle", true);
-        myRigidbody.velocity = Vector2.zero;
-        myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
     }
 
@@ -140,6 +142,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         {
             AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position);
             Die(collision);
+            FindObjectOfType<LevelCountText>().ProcessPlayerDeath();
         }
     }
 
@@ -188,7 +191,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         jumpSpeed = originalJump;
         jumpBoostCoroutine = null;
     }
-    private IEnumerator InvincibilityRoutine(float duration) //TODO: isInvincible should not kill the player
+    private IEnumerator InvincibilityRoutine(float duration)
     {
         isInvincible = true;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
@@ -211,15 +214,5 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
         invincibilityCoroutine = null;
     }
-
-
-
-    //public void RespawnPlayer(GameData gameData)
-    //{
-    //    if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
-    //    {
-    //        respawnPosition = new Vector3(-10.49f, -5.09f, 0f);
-    //    }
-    //}
 
 }

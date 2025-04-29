@@ -68,7 +68,7 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void SaveGame()
     {
-        if(this.gameData == null)
+        if (this.gameData == null)
         {
             Debug.LogError("No data has been found. A new game needs to be created!");
             return;

@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelCountText : MonoBehaviour, IDataPersistence
 {
     private TextMeshProUGUI livesCountText;
     private TextMeshProUGUI coinsCountText;
 
-    [SerializeField] int playerLives = 3;
-    [SerializeField] int playerBerry = 0;
-    [SerializeField] int playerCoins = 0;
-    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] private int playerLives = 3;
+    [SerializeField] private int playerBerry = 0;
+    [SerializeField] private int playerCoins = 0;
+    [SerializeField] private GameObject restartGame;
+    [SerializeField] private PlayerMovement playerMovement;
 
-    private Vector3 respawnPosition;
+    private Vector3 respawnPosition = new Vector3(-10.49f, -5.09f, 0f);
+    private bool isDead = false;
 
     public void SaveData(GameData gameData)
     {
@@ -32,7 +34,7 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
             }
         }
 
-        foreach(KeyValuePair<string, bool> pair in gameData.berryCollected)
+        foreach (KeyValuePair<string, bool> pair in gameData.berryCollected)
         {
             if (pair.Value)
             {
@@ -43,14 +45,12 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
         this.playerLives = gameData.playerLives;
     }
 
-    void Awake()
+    private void Start()
     {
-        livesCountText = this.GetComponent<TextMeshProUGUI>();
-        coinsCountText = this.GetComponent<TextMeshProUGUI>();
-    }
-
-    void Start()
-    {
+        if (restartGame != null)
+        {
+            restartGame.SetActive(false);
+        }
         GameObject livesTextObject = GameObject.Find("Lives Text");
         if (livesTextObject != null)
         {
@@ -66,34 +66,42 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
         UpdateLivesDisplay();
         UpdateCoinsDisplay();
     }
-
     public void ProcessPlayerDeath()
     {
+        if (isDead)
+        {
+            return;
+        }
+
+        TakeLife();
+
         if (playerLives > 0)
         {
             StartCoroutine(RespawnPlayerAfterDelay(3f));
-            if(playerLives <= 0)
-            {
-                StartCoroutine(RespawnAfterGameReset(3f));
-            }
+        }
+        else
+        {
+            isDead = true;
+            restartGame.SetActive(true);
         }
     }
 
-    public IEnumerator RespawnPlayerAfterDelay(float delay)
+
+    private IEnumerator RespawnPlayerAfterDelay(float delay)
     {
-        TakeLife();
         yield return new WaitForSeconds(delay);
-        respawnPosition = new Vector3(-10.49f, -5.09f, 0f);
         playerMovement.ResetPlayer(respawnPosition);
     }
-    public IEnumerator RespawnAfterGameReset(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        RespawnLife();
-        GameData gameData = new GameData();
-        playerMovement.ResetPlayer(gameData.playerPosition);
-    }
 
+
+    public void OnRestartButtonClicked()
+    {
+        isDead = false;
+        restartGame.SetActive(false);
+        RespawnLife();
+        playerMovement.ResetPlayer(respawnPosition);
+
+    }
     public void CollectCoin()
     {
         playerCoins++;
@@ -106,11 +114,11 @@ public class LevelCountText : MonoBehaviour, IDataPersistence
         UpdateLivesDisplay();
     }
 
+
     public void RespawnLife()
     {
         playerLives = 3;
         UpdateLivesDisplay();
-        DataPersistenceManager.instance.SaveGame();
     }
 
     void UpdateLivesDisplay()
