@@ -1,25 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class CoinPickup : MonoBehaviour, IDataPersistence
 {
-    [SerializeField] AudioClip coinPickupSound;
+    [SerializeField] private AudioClip coinPickupSound;
     [SerializeField] private string id;
+
     private bool collected = false;
+    private CoinsCollectedText coinsCountText;
+
+    private void Start()
+    {
+        coinsCountText = FindObjectOfType<CoinsCollectedText>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.CompareTag("Player") && !collected)
         {
-            FindObjectOfType<LevelCountText>().CollectCoin();
             AudioSource.PlayClipAtPoint(coinPickupSound, Camera.main.transform.position);
-            if (!collected)
-            {
-                CollectCoin();
-            }
+            CollectCoin();
         }
     }
+
     [ContextMenu("Generate guid for id")]
     private void GenerateGuid()
     {
@@ -28,24 +32,28 @@ public class CoinPickup : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData gameData)
     {
-        gameData.coinsCollected.TryGetValue(id, out collected);
-        if (collected)
+        if (gameData.coinsCollected.TryGetValue(id, out collected) && collected)
         {
             Destroy(gameObject);
         }
     }
+
     public void SaveData(GameData gameData)
     {
         if (gameData.coinsCollected.ContainsKey(id))
         {
-            gameData.coinsCollected.Remove(id);
+            gameData.coinsCollected[id] = collected;
         }
-        gameData.coinsCollected.Add(id, collected);
+        else
+        {
+            gameData.coinsCollected.Add(id, collected);
+        }
     }
 
-    public void CollectCoin()
+    private void CollectCoin()
     {
         collected = true;
+        coinsCountText.CollectCoin();
         Destroy(gameObject);
     }
 }

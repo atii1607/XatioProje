@@ -167,6 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362356193}
   - component: {fileID: 362356195}
+  - component: {fileID: 362356196}
   - component: {fileID: 362356194}
   m_Layer: 5
   m_Name: Coins Text
@@ -291,6 +292,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362356192}
   m_CullTransparentMesh: 1
+--- !u!114 &362356196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362356192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e4d131ec6fc714d80744510f3fd455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &394269363
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,8 +574,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1203037906}
-        m_TargetAssemblyTypeName: LevelCountText, Assembly-CSharp
+        m_TargetAssemblyTypeName: RestartGame, Assembly-CSharp
         m_MethodName: OnRestartButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TestButton, Assembly-CSharp
+        m_MethodName: TestClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -655,7 +680,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1203037906}
-        m_TargetAssemblyTypeName: LevelCountText, Assembly-CSharp
+        m_TargetAssemblyTypeName: RestartGame, Assembly-CSharp
         m_MethodName: OnRestartButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -762,6 +787,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 89f3fa6d-ae21-4edc-b752-3aa212c4f09b
   berryType: 2
+--- !u!1 &725297550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 725297551}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &725297551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725297550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 391.18463, y: 247.08191, z: -1.9652851}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1581664348}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &878001321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
@@ -1045,12 +1102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203037904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30d93e09cafb6442aa035e12b743358, type: 3}
+  m_Script: {fileID: 11500000, guid: 38e2cc78d91970c42a24730e1c4d3398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLives: 3
-  playerBerry: 0
-  playerCoins: 0
   restartGame: {fileID: 2074844233}
   playerMovement: {fileID: 478677840}
 --- !u!1 &1203943995
@@ -1755,6 +1809,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.json
+  gameData:
+    playerLives: 3
+    playerCoins: 0
+    playerPosition: {x: -10.49, y: -5.09, z: 0}
+    coinsCollected:
+      keys: []
+      values: 
+    berryCollected:
+      keys: []
+      values: 
 --- !u!4 &1581664348
 Transform:
   m_ObjectHideFlags: 0
@@ -1763,12 +1827,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581664346}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1025383, y: -5.391479, z: -0.010204554}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -393.28717, y: -252.47339, z: 1.9550805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 725297551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590027100 stripped
 GameObject:
@@ -13828,8 +13892,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1898235253}
   - component: {fileID: 1898235255}
-  - component: {fileID: 1898235254}
   - component: {fileID: 1898235256}
+  - component: {fileID: 1898235254}
   m_Layer: 5
   m_Name: Lives Text
   m_TagString: Untagged
@@ -13854,7 +13918,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 110, y: -32}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 230, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1898235254
 MonoBehaviour:
@@ -13939,7 +14003,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 58.51823, y: 0, z: -84.28172, w: -120.28765}
+  m_margin: {x: 58.51823, y: 0, z: -214.86702, w: -120.28765}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13962,14 +14026,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1898235252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30d93e09cafb6442aa035e12b743358, type: 3}
+  m_Script: {fileID: 11500000, guid: a6bd7a2d575779148ae046470492ffea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLives: 3
-  playerBerry: 0
-  playerCoins: 0
-  restartGame: {fileID: 2074844233}
   playerMovement: {fileID: 478677840}
+  isDead: 0
 --- !u!1 &1915931759
 GameObject:
   m_ObjectHideFlags: 0
@@ -15139,7 +15200,7 @@ PrefabInstance:
     - target: {fileID: 8550957043815577648, guid: 340a5aaa002b481469ed07923d25eaf8, type: 3}
       propertyPath: levelCountText
       value: 
-      objectReference: {fileID: 1898235256}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3969988120136183802, guid: 340a5aaa002b481469ed07923d25eaf8, type: 3}
     m_RemovedGameObjects: []
@@ -15460,5 +15521,5 @@ SceneRoots:
   - {fileID: 908632621}
   - {fileID: 3413001173839104594}
   - {fileID: 5408472455788130028}
-  - {fileID: 1581664348}
   - {fileID: 1613371668}
+  - {fileID: 725297551}

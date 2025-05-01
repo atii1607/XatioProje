@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class DataPersistenceManager : MonoBehaviour
 {
     [SerializeField] private string fileName;
-    private GameData gameData;
+    public GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler fileDataHandler;
     private string selectedProfileId = "";
@@ -43,12 +43,13 @@ public class DataPersistenceManager : MonoBehaviour
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
-    }
 
+    }
     public void OnSceneUnloaded(Scene scene)
     {
         SaveGame();
     }
+
     public void NewGame()
     {
         this.gameData = new GameData();

@@ -8,15 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
-    [SerializeField] LevelCountText levelCountText;
-    public float runSpeed = 5f;
+    [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float rollSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(20f, 20f);
     [SerializeField] AudioClip deathSound;
+
     private Coroutine speedBoostCoroutine;
     private Coroutine jumpBoostCoroutine;
     private Coroutine invincibilityCoroutine;
+    private LivesCountText livesCountText;
     public static PlayerMovement instance { get; private set; }
 
     Vector2 moveInput;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<BoxCollider2D>();
+        livesCountText = FindObjectOfType<LivesCountText>();
 
     }
 
@@ -119,7 +121,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             myRigidbody.velocity = deathKick;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
-            levelCountText.ProcessPlayerDeath();
+            livesCountText.ProcessPlayerDeath();
         }
     }
 
@@ -142,7 +144,6 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         {
             AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position);
             Die(collision);
-            FindObjectOfType<LevelCountText>().ProcessPlayerDeath();
         }
     }
 
