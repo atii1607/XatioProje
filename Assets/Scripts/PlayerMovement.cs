@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     [SerializeField] float rollSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(20f, 20f);
     [SerializeField] AudioClip deathSound;
+    [SerializeField] AudioClip jumpSound;
 
     private Coroutine speedBoostCoroutine;
     private Coroutine jumpBoostCoroutine;
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         if(value.isPressed == true)
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+            AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position);
         }
     }
 

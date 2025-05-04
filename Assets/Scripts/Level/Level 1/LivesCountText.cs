@@ -10,7 +10,8 @@ public class LivesCountText : MonoBehaviour, IDataPersistence
     private RestartGame restartGame;
 
     private int playerLives;
-    private Vector3 respawnPosition = new Vector3(-10.49f, -5.09f, 0f);
+    private Vector3 respawnPosition = new Vector3(-11.5f, -5.5f, 0f);
+    private GameData gameData;
     public bool isDead = false;
 
     public void LoadData(GameData gameData)

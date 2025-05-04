@@ -78,6 +78,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistence.SaveData(gameData);
         }
+        gameData.lastSceneName = SceneManager.GetActiveScene().name;
         fileDataHandler.Save(gameData, selectedProfileId);
     }
 
@@ -106,4 +107,5 @@ public class DataPersistenceManager : MonoBehaviour
     {
         return fileDataHandler.LoadAllProfiles();
     }
+
 }

@@ -8,6 +8,7 @@ public class LoadGameMenu : MonoBehaviour
     private FileSlot[] fileSlots;
     private bool isLoadingGame = false;
     private PlayMenu playMenu;
+    private string sceneToLoad;
 
     private void Awake()
     {
@@ -18,13 +19,27 @@ public class LoadGameMenu : MonoBehaviour
     {
         DisableMenuButtons();
         DataPersistenceManager.instance.ChangeSelectedProfileId(fileSlot.GetProfilesId());
-        if (!isLoadingGame)
+
+        if (isLoadingGame)
+        {
+            DataPersistenceManager.instance.LoadGame();
+            if (DataPersistenceManager.instance.gameData != null)
+            {
+                sceneToLoad = DataPersistenceManager.instance.gameData.lastSceneName;
+            }
+            else
+            {
+                sceneToLoad = "Level 1";
+            }
+        }
+        else
         {
             DataPersistenceManager.instance.NewGame();
+            sceneToLoad = "Level 1";
         }
-        SceneManager.LoadSceneAsync("Level 1");
-
+        SceneManager.LoadSceneAsync(sceneToLoad);
     }
+
 
     public void ActivateMenu(bool isLoadingGame)
     {
