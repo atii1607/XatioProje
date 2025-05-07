@@ -43,11 +43,13 @@ public class DataPersistenceManager : MonoBehaviour
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
-
+        Debug.Log("Scene Loaded!");
     }
+
     public void OnSceneUnloaded(Scene scene)
     {
         SaveGame();
+        Debug.Log("Scene Saved!");
     }
 
     public void NewGame()
@@ -66,6 +68,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistence.LoadData(gameData);
         }
+   
     }
     public void SaveGame()
     {

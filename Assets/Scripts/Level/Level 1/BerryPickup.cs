@@ -82,24 +82,4 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
         }
     }
 
-    //private void CollectRedBerry(PlayerMovement player)
-    //{
-    //    if (player != null)
-    //    {
-    //        collected = true;
-    //        player.ActivateSpeedBoost(boostSpeed, duration);
-    //        Destroy(gameObject);
-    //    }
-    //}
-
-    //private void CollectYellowBerry(PlayerMovement player)
-    //{
-    //    if (player != null)
-    //    {
-    //        collected = true;
-    //        player.ActivateJumpBoost(jumpBoost, duration);
-    //        Destroy(gameObject);
-    //    }
-    //}
-
 }

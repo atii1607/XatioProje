@@ -122,6 +122,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             myAnimator.SetBool("isDead", true);
             myRigidbody.velocity = deathKick;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+            myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
             livesCountText.ProcessPlayerDeath();
         }

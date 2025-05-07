@@ -3297,6 +3297,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.json
+  gameData:
+    playerLives: 3
+    playerCoins: 0
+    lastSceneName: Level 1
+    playerPosition: {x: -11.5, y: -5.5, z: 0}
+    coinsCollected:
+      keys: []
+      values: 
+    berryCollected:
+      keys: []
+      values: 
 --- !u!4 &1223783415
 Transform:
   m_ObjectHideFlags: 0
