@@ -10,6 +10,7 @@ public class GameData
     public int playerCoins;
     public string lastSceneName;
     public Vector3 playerPosition;
+    public Vector3 respawnPosition = new Vector3(-11.5f, -5.5f, 0f);
     public SerializableDictionary<string, bool> coinsCollected;
     public SerializableDictionary<string, bool> berryCollected;
 

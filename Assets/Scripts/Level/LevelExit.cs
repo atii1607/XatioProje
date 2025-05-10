@@ -22,6 +22,8 @@ public class LevelExit : MonoBehaviour
         {
             nextSceneIndex = 0;
         }
+        DataPersistenceManager.instance.gameData.playerPosition = DataPersistenceManager.instance.gameData.respawnPosition;
         SceneManager.LoadScene(nextSceneIndex);
+
     }
 }
