@@ -59,7 +59,6 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     {
         if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
     }
 
     void OnJump(InputValue value)

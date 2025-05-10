@@ -43,21 +43,11 @@ public class DataPersistenceManager : MonoBehaviour
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
-        Debug.Log("Scene Loaded!");
-        if(DataPersistenceManager.instance.gameData.lastSceneName == "Main Menu")
-        {
-            return;
-        }
-        else
-        {
-            SaveGame();
-        }
     }
 
     public void OnSceneUnloaded(Scene scene)
     {
         SaveGame();
-        Debug.Log("Scene Saved!");
     }
 
     public void NewGame()
