@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinPickup : MonoBehaviour, IDataPersistence
@@ -7,8 +5,9 @@ public class CoinPickup : MonoBehaviour, IDataPersistence
     [SerializeField] private AudioClip coinPickupSound;
     [SerializeField] private string id;
 
+    private CoinsCollectedText coinsCountText; 
+    
     private bool collected = false;
-    private CoinsCollectedText coinsCountText;
 
     private void Start()
     {

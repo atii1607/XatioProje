@@ -367,15 +367,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.272
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01330361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -408,10 +408,6 @@ PrefabInstance:
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
       value: Slimey Green (Enemy) (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -772,6 +768,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5006492569651499736, guid: 004e28df99540c7469d322b85ea41389, type: 3}
   m_PrefabInstance: {fileID: 444005002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &474467321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1154948846}
+    m_Modifications:
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_Name
+      value: Slimey Green (Enemy) (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b073a57478524964db057df43de2ad55, type: 3}
+--- !u!4 &474467322 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+  m_PrefabInstance: {fileID: 474467321}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &478677832 stripped
 Transform:
@@ -1248,15 +1306,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.913
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.271
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01330361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1290,10 +1348,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slimey Green (Enemy) (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1303,80 +1357,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
   m_PrefabInstance: {fileID: 765128832}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &843114145
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1154948846}
-    m_Modifications:
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 131.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.271
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.01330361
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1981005185, guid: 46e0749af037bd3439adb363973c2536, type: 3}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Name
-      value: Slimey Purple (Enemy) (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932787411617607505, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6c27f441a322d9b4393238de34b8f40b, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b073a57478524964db057df43de2ad55, type: 3}
---- !u!4 &843114146 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-  m_PrefabInstance: {fileID: 843114145}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &847309685
 PrefabInstance:
@@ -2537,15 +2517,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.259
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.728
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01330361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2578,10 +2558,6 @@ PrefabInstance:
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
       value: Slimey Green (Enemy) (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2699,10 +2675,10 @@ Transform:
   - {fileID: 87471308}
   - {fileID: 765128833}
   - {fileID: 1370591387}
-  - {fileID: 1984723373}
-  - {fileID: 1888303072}
-  - {fileID: 843114146}
-  - {fileID: 1745737953}
+  - {fileID: 1894402642}
+  - {fileID: 1525168541}
+  - {fileID: 1897259294}
+  - {fileID: 474467322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1203037904
@@ -2766,15 +2742,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.25
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.728
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01330361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2807,10 +2783,6 @@ PrefabInstance:
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
       value: Slimey Green (Enemy) (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2942,15 +2914,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.93
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.271
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01330361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2983,10 +2955,6 @@ PrefabInstance:
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
       value: Slimey Green (Enemy) (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3132,6 +3100,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380834533}
   m_CullTransparentMesh: 1
+--- !u!1001 &1525168540
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1154948846}
+    m_Modifications:
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_Name
+      value: Slimey Green (Enemy) (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b073a57478524964db057df43de2ad55, type: 3}
+--- !u!4 &1525168541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+  m_PrefabInstance: {fileID: 1525168540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1581664346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3197,7 @@ MonoBehaviour:
     playerCoins: 0
     lastSceneName: Level 1
     playerPosition: {x: -10.49, y: -5.09, z: 0}
-    repspawnPosition: {x: -11.5, y: -5.5, z: 0}
+    respawnPosition: {x: -11.5, y: -5.5, z: 0}
     coinsCollected:
       keys: []
       values: 
@@ -3752,80 +3782,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1001 &1745737952
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1154948846}
-    m_Modifications:
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 136.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.271
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.01330361
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1981005185, guid: 46e0749af037bd3439adb363973c2536, type: 3}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Name
-      value: Slimey Purple (Enemy) (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932787411617607505, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6c27f441a322d9b4393238de34b8f40b, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b073a57478524964db057df43de2ad55, type: 3}
---- !u!4 &1745737953 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-  m_PrefabInstance: {fileID: 1745737952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1767616927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30502,7 +30458,7 @@ Transform:
   - {fileID: 975125901}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1888303071
+--- !u!1001 &1894402641
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -30512,15 +30468,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75.255
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.271
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01330361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30550,31 +30506,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1981005185, guid: 46e0749af037bd3439adb363973c2536, type: 3}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Purple (Enemy) (1)
+      value: Slimey Green (Enemy) (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932787411617607505, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6c27f441a322d9b4393238de34b8f40b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b073a57478524964db057df43de2ad55, type: 3}
---- !u!4 &1888303072 stripped
+--- !u!4 &1894402642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-  m_PrefabInstance: {fileID: 1888303071}
+  m_PrefabInstance: {fileID: 1894402641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1897259293
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1154948846}
+    m_Modifications:
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_Name
+      value: Slimey Green (Enemy) (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b073a57478524964db057df43de2ad55, type: 3}
+--- !u!4 &1897259294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
+  m_PrefabInstance: {fileID: 1897259293}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1898235252
 GameObject:
@@ -33555,80 +33561,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22c80d51e359ff4396ca5ff117d61cb, type: 3}
---- !u!1001 &1984723372
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1154948846}
-    m_Modifications:
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 52.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.271
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.01330361
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1981005185, guid: 46e0749af037bd3439adb363973c2536, type: 3}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Name
-      value: Slimey Purple (Enemy)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932787411617607505, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6c27f441a322d9b4393238de34b8f40b, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b073a57478524964db057df43de2ad55, type: 3}
---- !u!4 &1984723373 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
-  m_PrefabInstance: {fileID: 1984723372}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2074844233
 GameObject:
   m_ObjectHideFlags: 0
@@ -33924,15 +33856,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.259
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.727
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01330361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33965,10 +33897,6 @@ PrefabInstance:
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
       value: Slimey Green (Enemy)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

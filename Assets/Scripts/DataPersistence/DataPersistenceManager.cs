@@ -1,18 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System.Globalization;
 using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
     [SerializeField] private string fileName;
+
     public GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler fileDataHandler;
-    private string selectedProfileId = "";
     public static DataPersistenceManager instance { get; private set; }
+
+    private string selectedProfileId = "";
 
     private void Awake()
     {
@@ -22,6 +22,7 @@ public class DataPersistenceManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         this.fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
@@ -57,11 +58,13 @@ public class DataPersistenceManager : MonoBehaviour
     public void LoadGame()
     {
         this.gameData = fileDataHandler.Load(selectedProfileId);
+
         if (gameData == null)
         {
             Debug.LogError("No game data has been found.");
             return;
         }
+
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.LoadData(gameData);
@@ -75,6 +78,7 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.LogError("No data has been found. A new game needs to be created!");
             return;
         }
+
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(gameData);

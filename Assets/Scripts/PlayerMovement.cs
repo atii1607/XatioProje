@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -29,9 +27,14 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     bool isAlive = true;
     bool isDying = false;
     public bool isInvincible = false;
+
     void Start()
     {
-        if(!isAlive) { return; }
+        if (!isAlive)
+        {
+            return;
+        }
+
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<BoxCollider2D>();
@@ -44,28 +47,46 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         Run();
         FlipSprite();
     }
+
     public void LoadData(GameData gameData)
     {
         this.transform.position = gameData.playerPosition;
     }
+
     public void SaveData (GameData gameData)
     {
-        if (this == null) return;
+        if (this == null)
+        {
+            return;
+        }
+
         gameData.playerPosition = transform.position;
 
     }
 
     void OnMove(InputValue value)
     {
-        if (!isAlive) { return; }
+        if (!isAlive)
+        {
+            return;
+        }
+
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
-        if (!isAlive) { return; }
-        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-        if(value.isPressed == true)
+        if (!isAlive)
+        {
+            return;
+        }
+
+        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            return;
+        }
+
+        if (value.isPressed == true)
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
             AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position);
@@ -79,12 +100,10 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
 
         bool playHasSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("isRunning", playHasSpeed);
-
     }
 
     void OnRoll(InputValue value)
     {
-
         if (value.isPressed)
         {
             StartCoroutine(Roll());
@@ -106,6 +125,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     void FlipSprite()
     {
         bool playHasSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+
         if (playHasSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
@@ -114,7 +134,11 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
 
     public void Die(Collider2D collision)
     {
-        if (isDying || !isAlive) return;
+        if (isDying || !isAlive)
+        {
+            return;
+        }
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             isAlive = false;
@@ -138,7 +162,6 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         isDying = false;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
     }
-
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -166,19 +189,20 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         }
         jumpBoostCoroutine = StartCoroutine(JumpBoostRoutine(boostJump, duration));
     }
-    public void ActivateInvincibility(float duration)
+    public void ActivateInvincibility(float inviDuration)
     {
         if (invincibilityCoroutine != null)
         {
             StopCoroutine(invincibilityCoroutine);
         }
-        invincibilityCoroutine = StartCoroutine(InvincibilityRoutine(duration));
+        invincibilityCoroutine = StartCoroutine(InvincibilityRoutine(inviDuration));
     }
 
     private IEnumerator SpeedBoostRoutine(float boostSpeed, float duration)
     {
         float originalSpeed = runSpeed;
         runSpeed = boostSpeed;
+
         yield return new WaitForSeconds(duration);
         runSpeed = originalSpeed;
         speedBoostCoroutine = null;
@@ -190,11 +214,10 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         jumpSpeed *= boostMultiplier;
 
         yield return new WaitForSeconds(duration);
-
         jumpSpeed = originalJump;
         jumpBoostCoroutine = null;
     }
-    private IEnumerator InvincibilityRoutine(float duration)
+    private IEnumerator InvincibilityRoutine(float inviDuration)
     {
         isInvincible = true;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
@@ -206,6 +229,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         c.a = lowAlpha;
         spriteRenderer.color = c;
         yield return new WaitForSeconds(5f);
+
         if (spriteRenderer != null)
         {
             spriteRenderer.enabled = true;
@@ -217,5 +241,4 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
         invincibilityCoroutine = null;
     }
-
 }

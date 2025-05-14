@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static BerryPickup;
 
 public class BerryPickup : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private string id;
+
     private float boostSpeed = 8f;
     private float jumpBoost = 1.3f;
     private float duration = 5f;
+    private float inviDuration = 10f;
     private bool collected = false;
     public enum BerryType
     {
@@ -36,11 +36,13 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
     public void LoadData(GameData gameData)
     {
         gameData.berryCollected.TryGetValue(id, out collected);
+
         if (collected)
         {
             Destroy(gameObject);
         }
     }
+
     public void SaveData(GameData gameData)
     {
         if (gameData.berryCollected.ContainsKey(id))
@@ -73,7 +75,7 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
                 break;
 
             case BerryType.GreenBerry:
-                player.ActivateInvincibility(duration);
+                player.ActivateInvincibility(inviDuration);
                 break;
 
             default:
@@ -81,5 +83,4 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
                 break;
         }
     }
-
 }

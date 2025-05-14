@@ -8,9 +8,11 @@ public class PlayMenu : MonoBehaviour
 {
     [Header("Menu Navigation")]
     [SerializeField] private LoadGameMenu loadGameMenu;
+
     [Header("Menu Buttons")]
     [SerializeField] private Button newGameButton;
-   public void OnNewGameClicked()
+    
+    public void OnNewGameClicked()
     {
         loadGameMenu.ActivateMenu(false);
         this.DeactivateMenu();

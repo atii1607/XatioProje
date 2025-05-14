@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,7 +6,6 @@ public class LoadGameMenu : MonoBehaviour
 {
     private FileSlot[] fileSlots;
     private bool isLoadingGame = false;
-    private PlayMenu playMenu;
     private string sceneToLoad;
 
     private void Awake()
@@ -23,6 +21,7 @@ public class LoadGameMenu : MonoBehaviour
         if (isLoadingGame)
         {
             DataPersistenceManager.instance.LoadGame();
+
             if (DataPersistenceManager.instance.gameData != null)
             {
                 sceneToLoad = DataPersistenceManager.instance.gameData.lastSceneName;
@@ -45,12 +44,14 @@ public class LoadGameMenu : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         this.isLoadingGame = isLoadingGame;
+
         Dictionary<string, GameData> profilesGameData = DataPersistenceManager.instance.GetAllProfilesGameData();
         foreach (FileSlot fileSlot in fileSlots)
         {
             GameData profileData = null;
             profilesGameData.TryGetValue(fileSlot.GetProfilesId(), out profileData);
             fileSlot.SetData(profileData);
+
             if(profileData == null && isLoadingGame)
             {
                 fileSlot.SetInteractable(false);

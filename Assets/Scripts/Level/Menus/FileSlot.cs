@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +10,12 @@ public class FileSlot : MonoBehaviour
     [SerializeField] private GameObject noData;
     [SerializeField] private GameObject hasData;
     private Button emptyButton;
+
     private void Awake()
     {
         emptyButton = this.GetComponent<Button>();
     }
+
     public void SetData(GameData gameData)
     {
         if(gameData == null)
@@ -34,6 +34,7 @@ public class FileSlot : MonoBehaviour
     {
         return this.profileId;
     }
+
     public void SetInteractable(bool interactable)
     {
         emptyButton.interactable = interactable;

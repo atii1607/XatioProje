@@ -4,14 +4,12 @@ using TMPro;
 
 public class LivesCountText : MonoBehaviour, IDataPersistence
 {
-    private TextMeshProUGUI livesCountText;
-
     [SerializeField] private PlayerMovement playerMovement;
+
+    private TextMeshProUGUI livesCountText;
     private RestartGame restartGame;
 
     private int playerLives;
-    private Vector3 respawnPosition = new Vector3(-11.5f, -5.5f, 0f);
-    private GameData gameData;
     public bool isDead = false;
 
     public void LoadData(GameData gameData)
@@ -29,11 +27,11 @@ public class LivesCountText : MonoBehaviour, IDataPersistence
     {
         restartGame = FindObjectOfType<RestartGame>();
         GameObject livesTextObject = GameObject.Find("Lives Text");
+
         if (livesTextObject != null)
         {
             livesCountText = livesTextObject.GetComponent<TextMeshProUGUI>();
         }
-
         UpdateLivesDisplay();
     }
     private void UpdateLivesDisplay()
@@ -57,7 +55,11 @@ public class LivesCountText : MonoBehaviour, IDataPersistence
 
     public void ProcessPlayerDeath()
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            return;
+        }
+
         TakeLife();
 
         if (playerLives > 0)
@@ -74,6 +76,6 @@ public class LivesCountText : MonoBehaviour, IDataPersistence
     private IEnumerator RespawnPlayerAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        playerMovement.ResetPlayer(respawnPosition);
+        playerMovement.ResetPlayer(DataPersistenceManager.instance.gameData.respawnPosition);
     }
 }

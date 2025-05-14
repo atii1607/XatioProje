@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -99,7 +98,6 @@ public class FileDataHandler
                 Debug.LogError("Something went horribly wrong in profile: " + profileId);
             }
         }
-
         return profileDictionary;
     }
 
@@ -121,8 +119,6 @@ public class FileDataHandler
             {
                 newProfileId = profileId;
             }
-
-
         }
         return newProfileId;
     }

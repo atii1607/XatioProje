@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -7,7 +5,7 @@ public class CoinsCollectedText : MonoBehaviour, IDataPersistence
 {
     private TextMeshProUGUI coinsCountText;
 
-    private int playerCoins = 0;
+    public int playerCoins = 0;
 
     public void LoadData(GameData gameData)
     {
@@ -22,11 +20,11 @@ public class CoinsCollectedText : MonoBehaviour, IDataPersistence
     private void Start()
     {
         GameObject coinsTextObject = GameObject.Find("Coins Text");
+
         if (coinsTextObject != null)
         {
             coinsCountText = coinsTextObject.GetComponent<TextMeshProUGUI>();
         }
-
         UpdateCoinsDisplay();
     }
 
