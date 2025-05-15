@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9159254458700160238, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: id
-      value: 7c8153b0-786b-4e02-8962-65bf2a212f9a
+      value: dd5055e8-a68e-482a-b21e-b2ce797c25ac
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1407,6 +1407,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518044687}
     m_Modifications:
+    - target: {fileID: 2801353295271471107, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
+      propertyPath: id
+      value: 9b1d8aa3-279f-4e79-9489-0e38df6ede5e
+      objectReference: {fileID: 0}
     - target: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_Name
       value: Berry (2)
@@ -1458,35 +1462,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 603261669}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
 --- !u!4 &603261667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5541181300407280645, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
   m_PrefabInstance: {fileID: 603261666}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &603261668 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
-  m_PrefabInstance: {fileID: 603261666}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &603261669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603261668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405171de8b116b149bdb32ca1dcf6c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 89f3fa6d-ae21-4edc-b752-3aa212c4f09b
-  berryType: 2
 --- !u!1 &725297550
 GameObject:
   m_ObjectHideFlags: 0
@@ -30537,6 +30519,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518044687}
     m_Modifications:
+    - target: {fileID: 2801353295271471107, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
+      propertyPath: id
+      value: 10583acd-9b50-49de-b51a-861437526d5b
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801353295271471107, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
+      propertyPath: berryType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_Name
       value: Berry
@@ -30588,35 +30578,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1904008466}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
 --- !u!4 &1904008464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5541181300407280645, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
   m_PrefabInstance: {fileID: 1904008463}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1904008465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
-  m_PrefabInstance: {fileID: 1904008463}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1904008466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904008465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405171de8b116b149bdb32ca1dcf6c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: e2a4065d-cc74-4e26-b36c-ca53b03914ff
-  berryType: 1
 --- !u!1 &1906897048
 GameObject:
   m_ObjectHideFlags: 0
@@ -32578,11 +32546,13 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 175
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 5.3252e-41, g: 5.3252e-41, b: 5.3252e-41, a: 5.3252e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -14, y: -10, z: 0}
-  m_Size: {x: 137, y: 15, z: 1}
+  m_Size: {x: 159, y: 16, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:

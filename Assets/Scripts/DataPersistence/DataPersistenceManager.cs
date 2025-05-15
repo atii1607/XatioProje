@@ -8,6 +8,7 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private string fileName;
 
     public GameData gameData;
+    private RestartGame restartGame;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler fileDataHandler;
     public static DataPersistenceManager instance { get; private set; }
@@ -91,6 +92,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         SaveGame();
     }
+
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {

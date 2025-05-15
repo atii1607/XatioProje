@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     private LivesCountText livesCountText;
     public static PlayerMovement instance { get; private set; }
 
-    Vector2 moveInput;
-    Rigidbody2D myRigidbody;
-    Animator myAnimator;
-    BoxCollider2D myBodyCollider;
+    public Vector2 moveInput;
+    public Rigidbody2D myRigidbody;
+    public Animator myAnimator;
+    public BoxCollider2D myBodyCollider;
 
-    bool isAlive = true;
+    public bool isAlive = true;
     bool isDying = false;
     public bool isInvincible = false;
 
@@ -146,6 +146,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             myRigidbody.velocity = deathKick;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            moveInput = Vector2.zero;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
             livesCountText.ProcessPlayerDeath();
         }

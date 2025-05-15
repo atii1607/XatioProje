@@ -7,8 +7,6 @@ public class RestartGame : MonoBehaviour
 
     private LivesCountText livesCountText;
 
-    private Vector3 respawnPosition = new Vector3(-11.5f, -5.5f, 0f);
-
     private void Start()
     {
         if (restartGame != null)
@@ -16,6 +14,14 @@ public class RestartGame : MonoBehaviour
             restartGame.SetActive(false);
         }
         livesCountText = FindObjectOfType<LivesCountText>();
+
+        if (DataPersistenceManager.instance.gameData != null && DataPersistenceManager.instance.gameData.playerLives <= 0)
+        {
+            RestartScreen();
+            playerMovement.isAlive = false;
+            playerMovement.moveInput = Vector2.zero;
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
+        }
     }
 
     public void RestartScreen()
@@ -29,7 +35,7 @@ public class RestartGame : MonoBehaviour
         restartGame.SetActive(false);
 
         livesCountText.RespawnLife();
-        playerMovement.ResetPlayer(respawnPosition);
+        playerMovement.ResetPlayer(DataPersistenceManager.instance.gameData.respawnPosition);
     }
 
 }
