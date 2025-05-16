@@ -73,6 +73,31 @@ public class FileDataHandler
             Debug.LogError("Error occured when trying to save data" + fullPath + "\n" + ex);
         }
     }
+    public void Delete(string profileId)
+    {
+        if (profileId == null)
+        {
+            return;
+        }
+
+        string fullPath = Path.Combine(dataDirectoryPath, profileId, dataFileName);
+        try
+        {
+            if (File.Exists(fullPath))
+            {
+                Directory.Delete(Path.GetDirectoryName(fullPath), true);
+            }
+            else
+            {
+                Debug.LogWarning("Tried to delete profile data, but data was not found at path: " + fullPath);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Failed to delete profile data for profileId: "
+                + profileId + " at path: " + fullPath + "\n" + e);
+        }
+    }
 
     public Dictionary<string, GameData> LoadAllProfiles()
     {

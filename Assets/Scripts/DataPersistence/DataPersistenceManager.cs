@@ -8,7 +8,6 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private string fileName;
 
     public GameData gameData;
-    private RestartGame restartGame;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler fileDataHandler;
     public static DataPersistenceManager instance { get; private set; }
@@ -114,5 +113,11 @@ public class DataPersistenceManager : MonoBehaviour
     {
         return fileDataHandler.LoadAllProfiles();
     }
+    public void DeleteProfileData(string profileId)
+    {
+        fileDataHandler.Delete(profileId);
+        LoadGame();
+    }
+
 
 }
