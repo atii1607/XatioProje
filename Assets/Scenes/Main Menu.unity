@@ -3329,6 +3329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.json
+  useEncryption: 1
   gameData:
     playerLives: 3
     playerCoins: 0

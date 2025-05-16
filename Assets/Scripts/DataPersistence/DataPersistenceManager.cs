@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DataPersistenceManager : MonoBehaviour
 {
     [SerializeField] private string fileName;
+    [SerializeField] private bool useEncryption;
 
     public GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
@@ -25,7 +26,7 @@ public class DataPersistenceManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        this.fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        this.fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
         this.selectedProfileId = fileDataHandler.GetProfileId();
     }
 

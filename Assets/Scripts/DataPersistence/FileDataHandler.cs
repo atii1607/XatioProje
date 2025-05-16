@@ -7,11 +7,14 @@ public class FileDataHandler
 {
     private string dataDirectoryPath = "";
     private string dataFileName = "";
+    private bool useEncryption = false;
+    private readonly string encryptionCodeWord = "word";
 
-    public FileDataHandler(string dataDirectoryPath, string dataFileName)
+    public FileDataHandler(string dataDirectoryPath, string dataFileName, bool useEncryption)
     {
         this.dataDirectoryPath = dataDirectoryPath;
         this.dataFileName = dataFileName;
+        this.useEncryption = useEncryption;
     }
 
     public GameData Load(string profileId)
@@ -37,6 +40,11 @@ public class FileDataHandler
                     }
                 }
 
+                if (useEncryption)
+                {
+                    dataToLoad = EncryptDecrypt(dataToLoad);
+                }
+
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
             catch (Exception ex)
@@ -58,7 +66,13 @@ public class FileDataHandler
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+
             string dataToStore = JsonUtility.ToJson(gameData, true);
+
+            if (useEncryption)
+            {
+                dataToStore = EncryptDecrypt(dataToStore);
+            }
 
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
@@ -146,5 +160,16 @@ public class FileDataHandler
             }
         }
         return newProfileId;
+    }
+
+    private string EncryptDecrypt(string data)
+    {
+        string modifiedData = "";
+        for (int i = 0; i < data.Length; i++)
+        {
+            modifiedData += (char)(data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
+        } 
+        return modifiedData;
+    
     }
 }
