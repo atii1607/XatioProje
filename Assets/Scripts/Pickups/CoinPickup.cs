@@ -22,8 +22,8 @@ public class CoinPickup : MonoBehaviour, IDataPersistence
             CollectCoin();
         }
     }
-
     [ContextMenu("Generate guid for id")]
+
     private void GenerateGuid()
     {
         id = System.Guid.NewGuid().ToString();
@@ -43,6 +43,7 @@ public class CoinPickup : MonoBehaviour, IDataPersistence
         {
             gameData.coinsCollected[id] = collected;
         }
+
         else
         {
             gameData.coinsCollected.Add(id, collected);

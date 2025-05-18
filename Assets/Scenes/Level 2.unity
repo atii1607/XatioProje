@@ -230,7 +230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (2)
+      value: Coins (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -513,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy)
+      value: Slimey Green
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -535,7 +535,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1055324610628709562, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_Name
-      value: Slimey Purple (Enemy) (1)
+      value: Slimey Purple
       objectReference: {fileID: 0}
     - target: {fileID: 3705003598373770127, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -623,7 +623,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -156, y: -28}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 225, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362356194
 MonoBehaviour:
@@ -745,7 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 475820300}
   m_Layer: 0
-  m_Name: GreenMovingPlatform (2)
+  m_Name: Moving Platform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -831,7 +831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492736139}
   m_Layer: 0
-  m_Name: GreenMovingPlatform (3)
+  m_Name: Moving Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,16 +950,16 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 754782439}
-  - {fileID: 134264816}
-  - {fileID: 584583275}
-  - {fileID: 524151997}
-  - {fileID: 1904008464}
-  - {fileID: 497987167}
-  - {fileID: 603261667}
   - {fileID: 49946368}
+  - {fileID: 497987167}
   - {fileID: 1038939196}
   - {fileID: 849530743}
+  - {fileID: 524151997}
+  - {fileID: 584583275}
+  - {fileID: 134264816}
+  - {fileID: 754782439}
+  - {fileID: 1904008464}
+  - {fileID: 603261667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &524151996
@@ -972,7 +972,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins
+      value: Coins (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1038,7 +1038,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (1)
+      value: Coins (5)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1413,7 +1413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_Name
-      value: Berry (2)
+      value: Berry (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5541181300407280645, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1511,7 +1511,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (3)
+      value: Coins (7)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1661,7 +1661,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins
+      value: Coins (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2457,7 +2457,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1055324610628709562, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_Name
-      value: Slimey Purple (Enemy)
+      value: Slimey Purple (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3705003598373770127, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2570,12 +2570,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 353962156}
-  - {fileID: 1373956986}
+  - {fileID: 1051498866}
+  - {fileID: 1549091274}
   - {fileID: 339379068}
   - {fileID: 2109050134}
   - {fileID: 1929617201}
-  - {fileID: 1051498866}
-  - {fileID: 1549091274}
+  - {fileID: 1373956986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200813483
@@ -2999,7 +2999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy) (3)
+      value: Slimey Green (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3186,7 +3186,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1055324610628709562, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_Name
-      value: Slimey Purple (Enemy) (1)
+      value: Slimey Purple (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3705003598373770127, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30596,7 +30596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1906897049}
   m_Layer: 0
-  m_Name: GreenMovingPlatform (1)
+  m_Name: Moving Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33022,7 +33022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy) (1)
+      value: Slimey Green (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33351,7 +33351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy) (2)
+      value: Slimey Green (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33373,7 +33373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2115581262}
   m_Layer: 0
-  m_Name: GreenMovingPlatform
+  m_Name: Moving Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33609,7 +33609,7 @@ PrefabInstance:
       objectReference: {fileID: 478677832}
     - target: {fileID: 7040931846892668496, guid: 1ab35c37295cda1469fba27b05f32530, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3120222
+      value: -2.3208323
       objectReference: {fileID: 0}
     - target: {fileID: 7040931846892668496, guid: 1ab35c37295cda1469fba27b05f32530, type: 3}
       propertyPath: m_LocalPosition.y

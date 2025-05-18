@@ -11,9 +11,10 @@ public class DataPersistenceManager : MonoBehaviour
     public GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler fileDataHandler;
-    public static DataPersistenceManager instance { get; private set; }
 
     private string selectedProfileId = "";
+
+    public static DataPersistenceManager instance { get; private set; }
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class DataPersistenceManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
+
     public void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -52,10 +54,23 @@ public class DataPersistenceManager : MonoBehaviour
         SaveGame();
     }
 
+    public void ChangeSelectedProfileId(string newProfileId)
+    {
+        this.selectedProfileId = newProfileId;
+        LoadGame();
+    }
+
+    public void DeleteProfileData(string profileId)
+    {
+        fileDataHandler.Delete(profileId);
+        LoadGame();
+    }
+
     public void NewGame()
     {
         this.gameData = new GameData();
     }
+
     public void LoadGame()
     {
         this.gameData = fileDataHandler.Load(selectedProfileId);
@@ -70,8 +85,8 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistence.LoadData(gameData);
         }
-   
     }
+
     public void SaveGame()
     {
         if (this.gameData == null)
@@ -84,6 +99,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistence.SaveData(gameData);
         }
+
         gameData.lastSceneName = SceneManager.GetActiveScene().name;
         fileDataHandler.Save(gameData, selectedProfileId);
     }
@@ -93,18 +109,12 @@ public class DataPersistenceManager : MonoBehaviour
         SaveGame();
     }
 
-
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
 
-    public void ChangeSelectedProfileId(string newProfileId)
-    {
-        this.selectedProfileId = newProfileId;
-        LoadGame();
-    }
     public bool HasGameData()
     {
         return gameData != null;
@@ -114,11 +124,5 @@ public class DataPersistenceManager : MonoBehaviour
     {
         return fileDataHandler.LoadAllProfiles();
     }
-    public void DeleteProfileData(string profileId)
-    {
-        fileDataHandler.Delete(profileId);
-        LoadGame();
-    }
-
 
 }

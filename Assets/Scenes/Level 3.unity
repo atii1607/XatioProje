@@ -123,6 +123,152 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13827296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 13827297}
+  - component: {fileID: 13827300}
+  - component: {fileID: 13827299}
+  - component: {fileID: 13827298}
+  m_Layer: 6
+  m_Name: Platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &13827297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13827296}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759399042}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &13827298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13827296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053d7df40381c364f85d4e28950fbf41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointA: {fileID: 1027140688}
+  pointB: {fileID: 1599324932}
+  moveSpeed: 2
+--- !u!61 &13827299
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13827296}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &13827300
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13827296}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1712416041
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -843516898, guid: 25cb66fb42948da458fb54432cdbc90b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &49946367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,7 +376,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (6)
+      value: Coins (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -482,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy)
+      value: Slimey Green
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -530,7 +676,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -156, y: -28}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 225, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362356194
 MonoBehaviour:
@@ -704,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492736139}
   m_Layer: 0
-  m_Name: GreenMovingPlatform (3)
+  m_Name: Moving Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -757,17 +903,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1465458951}
-  - {fileID: 1833085531}
-  - {fileID: 1904008464}
-  - {fileID: 603261667}
-  - {fileID: 1855286679}
   - {fileID: 49946368}
   - {fileID: 1052082748}
   - {fileID: 1157541291}
   - {fileID: 165024871}
   - {fileID: 1223884900}
   - {fileID: 1418053257}
+  - {fileID: 1855286679}
+  - {fileID: 1904008464}
+  - {fileID: 603261667}
+  - {fileID: 1465458951}
+  - {fileID: 1833085531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586592183
@@ -1181,6 +1327,40 @@ Transform:
   - {fileID: 1581664348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &759399041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759399042}
+  m_Layer: 0
+  m_Name: Moving Platform (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759399042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759399041}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.5, y: -5.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 13827297}
+  - {fileID: 1027140688}
+  - {fileID: 1599324932}
+  m_Father: {fileID: 1302232420}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908632617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1556,16 @@ Tilemap:
   m_GameObject: {fileID: 996757845}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: 48, y: -9, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 14
+      m_TileSpriteIndex: 14
+      m_TileMatrixIndex: 4
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 70, y: -9, z: 0}
     second:
       serializedVersion: 2
@@ -1486,10 +1676,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: a39e689958117c84cafa74da64e7b26d, type: 2}
+    m_Data: {fileID: 11400000, guid: 8c6bf75de44ef594b8383d3b3b1992f9, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: d381e29cbe5fef9499e55bdc04d34212, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 573bffeeab45eb1478ff4e8894306d0c, type: 2}
   m_TileSpriteArray:
@@ -1521,10 +1711,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 1287405242, guid: 9b378dc40c2eaa04aac8859f0e900386, type: 3}
+    m_Data: {fileID: -1270675450, guid: 9b378dc40c2eaa04aac8859f0e900386, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -2073403308, guid: 9b378dc40c2eaa04aac8859f0e900386, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: 6ac54790e1a6f6a4fb96e3d6ebd68d65, type: 3}
   m_TileMatrixArray:
@@ -1600,7 +1790,7 @@ Tilemap:
       e31: 0
       e32: 4.5904e-41
       e33: 0
-  - m_RefCount: 8
+  - m_RefCount: 9
     m_Data:
       e00: 1
       e01: 0
@@ -1619,7 +1809,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 8
+  - m_RefCount: 9
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -1645,6 +1835,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1027140687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1027140688}
+  m_Layer: 0
+  m_Name: Point A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1027140688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027140687}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759399042}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1051498865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1655,7 +1876,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1055324610628709562, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_Name
-      value: Slimey Purple (Enemy)
+      value: Slimey Purple (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3705003598373770127, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1717,7 +1938,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (4)
+      value: Coins (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1783,7 +2004,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1055324610628709562, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_Name
-      value: Slimey Purple (Enemy) (2)
+      value: Slimey Purple
       objectReference: {fileID: 0}
     - target: {fileID: 3705003598373770127, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1898,10 +2119,10 @@ Transform:
   - {fileID: 339379068}
   - {fileID: 2109050134}
   - {fileID: 1929617201}
-  - {fileID: 1959638789}
   - {fileID: 1727743419}
-  - {fileID: 1051498866}
+  - {fileID: 1959638789}
   - {fileID: 1111542666}
+  - {fileID: 1051498866}
   - {fileID: 1549091274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1915,7 +2136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (5)
+      value: Coins (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2063,7 +2284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (7)
+      value: Coins (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2297,6 +2518,7 @@ Transform:
   - {fileID: 2115581262}
   - {fileID: 492736139}
   - {fileID: 1906897049}
+  - {fileID: 759399042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310581923
@@ -2551,7 +2773,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4665702201333469581, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_Name
-      value: Coins (8)
+      value: Coins (5)
       objectReference: {fileID: 0}
     - target: {fileID: 5673659278779918027, guid: 9795ead9f1c076a48ba3e154d85e4b67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2625,7 +2847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_Name
-      value: Berry (1)
+      value: Berry (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5541181300407280645, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2722,7 +2944,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1055324610628709562, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_Name
-      value: Slimey Purple (Enemy) (1)
+      value: Slimey Purple (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3705003598373770127, guid: 3be282ecfcd7d1f48851d43f5e5894b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2831,6 +3053,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 725297551}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1599324931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599324932}
+  m_Layer: 0
+  m_Name: Point B
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599324932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599324931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759399042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1613371665
 GameObject:
@@ -3255,7 +3508,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 1628473928905754696, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3293,9 +3546,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677478880006793814, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy) (4)
+      value: Slimey Green (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384682102251713743, guid: b073a57478524964db057df43de2ad55, type: 3}
+      propertyPath: moveSpeed
+      value: 1.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34694,7 +34967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_Name
-      value: Berry (3)
+      value: Berry
       objectReference: {fileID: 0}
     - target: {fileID: 5541181300407280645, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34917,7 +35190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2948997714028805604, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_Name
-      value: Berry
+      value: Berry (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5541181300407280645, guid: 633ab53d9c8a0b54fb35ca38266d2be4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34987,7 +35260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1906897049}
   m_Layer: 0
-  m_Name: GreenMovingPlatform (1)
+  m_Name: Moving Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37244,7 +37517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy) (1)
+      value: Slimey Green (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37306,7 +37579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy) (3)
+      value: Slimey Green (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37405,7 +37678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321518208695193076, guid: b073a57478524964db057df43de2ad55, type: 3}
       propertyPath: m_Name
-      value: Slimey Green (Enemy) (2)
+      value: Slimey Green (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37427,7 +37700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2115581262}
   m_Layer: 0
-  m_Name: GreenMovingPlatform
+  m_Name: Moving Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37663,7 +37936,7 @@ PrefabInstance:
       objectReference: {fileID: 478677832}
     - target: {fileID: 7040931846892668496, guid: 1ab35c37295cda1469fba27b05f32530, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3120222
+      value: -2.3208323
       objectReference: {fileID: 0}
     - target: {fileID: 7040931846892668496, guid: 1ab35c37295cda1469fba27b05f32530, type: 3}
       propertyPath: m_LocalPosition.y

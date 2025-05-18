@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -30,11 +28,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
- 
         moveSpeed = -moveSpeed;
         Die(collision);
-
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Die(collision.collider);
@@ -59,6 +56,7 @@ public class EnemyMovement : MonoBehaviour
                 myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
                 Destroy(gameObject, myAnimator.GetCurrentAnimatorStateInfo(0).length);
             }
+
             else
             {
                 PlayerMovement player = collision.GetComponent<PlayerMovement>();

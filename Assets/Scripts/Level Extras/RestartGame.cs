@@ -13,6 +13,7 @@ public class RestartGame : MonoBehaviour
         {
             restartGame.SetActive(false);
         }
+
         livesCountText = FindObjectOfType<LivesCountText>();
 
         if (DataPersistenceManager.instance.gameData != null && DataPersistenceManager.instance.gameData.playerLives <= 0)
@@ -37,5 +38,4 @@ public class RestartGame : MonoBehaviour
         livesCountText.RespawnLife();
         playerMovement.ResetPlayer(DataPersistenceManager.instance.gameData.respawnPosition);
     }
-
 }

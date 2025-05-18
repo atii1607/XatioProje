@@ -22,7 +22,6 @@ public class LivesCountText : MonoBehaviour, IDataPersistence
         gameData.playerLives = this.playerLives;
     }
 
-
     private void Start()
     {
         restartGame = FindObjectOfType<RestartGame>();
@@ -32,8 +31,10 @@ public class LivesCountText : MonoBehaviour, IDataPersistence
         {
             livesCountText = livesTextObject.GetComponent<TextMeshProUGUI>();
         }
+
         UpdateLivesDisplay();
     }
+
     private void UpdateLivesDisplay()
     {
         if (livesCountText != null)
@@ -59,13 +60,13 @@ public class LivesCountText : MonoBehaviour, IDataPersistence
         {
             return;
         }
-
         TakeLife();
 
         if (playerLives > 0)
         {
             StartCoroutine(RespawnPlayerAfterDelay(3f));
         }
+
         else
         {
             isDead = true;

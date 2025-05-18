@@ -23,6 +23,7 @@ public class FileSlot : MonoBehaviour
             noData.SetActive(true);
             hasData.SetActive(false);
         }
+
         else
         {
             noData.SetActive(false);

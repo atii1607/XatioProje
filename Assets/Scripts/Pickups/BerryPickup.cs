@@ -1,5 +1,4 @@
 using UnityEngine;
-using static BerryPickup;
 
 public class BerryPickup : MonoBehaviour, IDataPersistence
 {
@@ -10,12 +9,14 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
     private float duration = 5f;
     private float inviDuration = 10f;
     private bool collected = false;
+
     public enum BerryType
     {
         RedBerry,
         YellowBerry,
         GreenBerry,
     }
+
     public BerryType berryType;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,8 +27,8 @@ public class BerryPickup : MonoBehaviour, IDataPersistence
             CollectBerry(player);
         }
     }
-
     [ContextMenu("Generate guid for id")]
+
     private void GenerateGuid()
     {
         id = System.Guid.NewGuid().ToString();

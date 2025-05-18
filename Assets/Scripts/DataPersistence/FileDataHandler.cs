@@ -8,7 +8,7 @@ public class FileDataHandler
     private string dataDirectoryPath = "";
     private string dataFileName = "";
     private bool useEncryption = false;
-    private readonly string encryptionCodeWord = "word";
+    private readonly string encryptionKey = "xxxx";
 
     public FileDataHandler(string dataDirectoryPath, string dataFileName, bool useEncryption)
     {
@@ -47,6 +47,7 @@ public class FileDataHandler
 
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
+
             catch (Exception ex)
             {
                 Debug.LogError("Error occured when trying to load data" + fullPath + "\n" + ex);
@@ -82,6 +83,7 @@ public class FileDataHandler
                 }
             }
         }
+
         catch (Exception ex)
         {
             Debug.LogError("Error occured when trying to save data" + fullPath + "\n" + ex);
@@ -101,11 +103,13 @@ public class FileDataHandler
             {
                 Directory.Delete(Path.GetDirectoryName(fullPath), true);
             }
+
             else
             {
                 Debug.LogWarning("Tried to delete profile data, but data was not found at path: " + fullPath);
             }
         }
+
         catch (Exception e)
         {
             Debug.LogError("Failed to delete profile data for profileId: "
@@ -116,25 +120,28 @@ public class FileDataHandler
     public Dictionary<string, GameData> LoadAllProfiles()
     {
         Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
-
         IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirectoryPath).EnumerateDirectories();
+
         foreach (DirectoryInfo dirInfo in dirInfos)
         {
             string profileId = dirInfo.Name;
             string fullPath = Path.Combine(dataDirectoryPath, profileId, dataFileName);
+
             if (!File.Exists(fullPath))
             {
                 Debug.Log("Skipping directory when loading all profiles because it does not contain data: " + profileId);
                 continue;
             }
             GameData profileData = Load(profileId);
+
             if(profileData != null)
             {
                 profileDictionary.Add(profileId, profileData);
             }
+
             else
             {
-                Debug.LogError("Something went horribly wrong in profile: " + profileId);
+                Debug.LogError("Tried to load profile but went something went wrong in: " + profileId);
             }
         }
         return profileDictionary;
@@ -144,6 +151,7 @@ public class FileDataHandler
     {
         string newProfileId = null;
         Dictionary<string, GameData> profileGameData = LoadAllProfiles();
+
         foreach(KeyValuePair<string, GameData> pair in profileGameData)
         {
             string profileId =pair.Key;
@@ -165,11 +173,11 @@ public class FileDataHandler
     private string EncryptDecrypt(string data)
     {
         string modifiedData = "";
+
         for (int i = 0; i < data.Length; i++)
         {
-            modifiedData += (char)(data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
+            modifiedData += (char)(data[i] ^ encryptionKey[i % encryptionKey.Length]);
         } 
         return modifiedData;
-    
     }
 }

@@ -26,11 +26,13 @@ public class LoadGameMenu : MonoBehaviour
             {
                 sceneToLoad = DataPersistenceManager.instance.gameData.lastSceneName;
             }
+
             else
             {
                 sceneToLoad = "Level 1";
             }
         }
+
         else
         {
             DataPersistenceManager.instance.NewGame();
@@ -38,7 +40,6 @@ public class LoadGameMenu : MonoBehaviour
         }
         SceneManager.LoadSceneAsync(sceneToLoad);
     }
-
 
     public void ActivateMenu(bool isLoadingGame)
     {
@@ -56,6 +57,7 @@ public class LoadGameMenu : MonoBehaviour
             {
                 fileSlot.SetInteractable(false);
             }
+
             else
             {
                 fileSlot.SetInteractable(true);
@@ -63,6 +65,7 @@ public class LoadGameMenu : MonoBehaviour
         }
 
     }
+
     public void DeactivateMenu()
     {
         this.gameObject.SetActive(false);

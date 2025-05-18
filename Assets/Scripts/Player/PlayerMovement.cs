@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
@@ -17,6 +15,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     private Coroutine jumpBoostCoroutine;
     private Coroutine invincibilityCoroutine;
     private LivesCountText livesCountText;
+
     public static PlayerMovement instance { get; private set; }
 
     public Vector2 moveInput;
@@ -28,6 +27,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     bool isDying = false;
     public bool isInvincible = false;
 
+    #region PLAYER CLASS AND GAMEDATA
     void Start()
     {
         if (!isAlive)
@@ -63,7 +63,9 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         gameData.playerPosition = transform.position;
 
     }
+    #endregion
 
+    #region PLAYER MOVEMENT
     void OnMove(InputValue value)
     {
         if (!isAlive)
@@ -131,7 +133,9 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
         }
     }
+    #endregion
 
+    #region PLAYER DEATH AND RESPAWN
     public void Die(Collider2D collision)
     {
         if (isDying || !isAlive)
@@ -172,7 +176,9 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             Die(collision);
         }
     }
+    #endregion
 
+    #region PLAYER ABILITIES
     public void ActivateSpeedBoost(float boostSpeed, float duration)
     {
         if (speedBoostCoroutine != null)
@@ -229,7 +235,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         Color c = spriteRenderer.color;
         c.a = lowAlpha;
         spriteRenderer.color = c;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(inviDuration);
 
         if (spriteRenderer != null)
         {
@@ -242,4 +248,5 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
         invincibilityCoroutine = null;
     }
+    #endregion
 }

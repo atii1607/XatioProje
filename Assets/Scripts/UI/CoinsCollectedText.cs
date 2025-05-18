@@ -41,5 +41,4 @@ public class CoinsCollectedText : MonoBehaviour, IDataPersistence
         playerCoins++;
         UpdateCoinsDisplay();
     }
-
 }
