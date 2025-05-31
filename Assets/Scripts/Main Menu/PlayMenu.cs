@@ -36,4 +36,9 @@ public class PlayMenu : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }

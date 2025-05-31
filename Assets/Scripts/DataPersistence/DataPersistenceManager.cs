@@ -106,6 +106,13 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "Main Menu")
+        {
+            return;
+        }
+
         SaveGame();
     }
 
