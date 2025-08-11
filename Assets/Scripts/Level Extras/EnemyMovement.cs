@@ -4,10 +4,13 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
 
+    private ScoreCountText scoreCountText;
+
     Rigidbody2D myRigidBody2D;
     Animator myAnimator;
 
     bool isAlive = true;
+    private int playerScore = 0;
 
     void Start()
     {
@@ -18,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
 
         myRigidBody2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        scoreCountText = FindObjectOfType<ScoreCountText>();
     }
 
     void Update()
@@ -55,6 +59,7 @@ public class EnemyMovement : MonoBehaviour
                 myAnimator.SetTrigger("Die");
                 myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
                 Destroy(gameObject, myAnimator.GetCurrentAnimatorStateInfo(0).length);
+                GainScore();
             }
 
             else
@@ -67,6 +72,20 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
+    }
+    public void LoadData(GameData gameData)
+    {
+        this.playerScore = gameData.playerScore;
+    }
+
+    public void SaveData(GameData gameData)
+    {
+        gameData.playerScore = this.playerScore;
+    }
+    private void GainScore()
+    {
+        isAlive = false;
+        scoreCountText.GainScore();
     }
 
 }

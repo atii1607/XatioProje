@@ -6,6 +6,7 @@ public class GameData
 {
     public int playerLives;
     public int playerCoins;
+    public int playerScore;
     public string lastSceneName;
     public Vector3 playerPosition;
     public Vector3 respawnPosition = new Vector3(-11.5f, -5.5f, 0f);
@@ -16,6 +17,7 @@ public class GameData
     {
         this.playerLives = 3;
         this.playerCoins = 0;
+        this.playerScore = 0;
         this.lastSceneName = "Level 1";
         playerPosition = new Vector3(-11.5f, -5.5f, 0f);
         coinsCollected = new SerializableDictionary<string, bool>();

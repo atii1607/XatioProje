@@ -85,6 +85,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistence.LoadData(gameData);
         }
+        Debug.Log("Game has been loaded");
     }
 
     public void SaveGame()
@@ -102,6 +103,7 @@ public class DataPersistenceManager : MonoBehaviour
 
         gameData.lastSceneName = SceneManager.GetActiveScene().name;
         fileDataHandler.Save(gameData, selectedProfileId);
+        Debug.Log("Game has been saved");
     }
 
     private void OnApplicationQuit()
